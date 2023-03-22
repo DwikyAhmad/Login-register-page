@@ -13,7 +13,7 @@ body {
     align-items: center;
     min-height: 100vh;
     overflow: hidden;
-    background: url(pexels-lil-artsy-1213447.jpg);
+    background: url(img/pexels-lil-artsy-1213447.jpg);
     background-size: cover;
 }
 
@@ -94,12 +94,12 @@ header {
     transform-origin: left;
 }
 
-@media (min-aspect-ratio: 16/9) {
+/* @media (min-aspect-ratio: 16/9) {
     .back-video {
         width: 100%;
         height: auto;
     }
-}
+} */
 
 main {
     position: relative; 
@@ -113,7 +113,9 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* overflow: hidden; */
+    transition: transform .5s ease, height .2s ease;
+    transform: scale(0);
+    overflow: hidden;
 }
 
 main > .form-box {
@@ -244,10 +246,30 @@ main > .icon-close {
 }
 
 main > .form-box.login {
-    /* display: none; */
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+main.active > .form-box.login {
+    transition: none;
+    transform: translateX(-400px);
+}
+
+main.active > .form-box.register {
+    transition: transform .18s ease;
+    transform: translateX(0);
 }
 
 main > .form-box.register {
     position: absolute;
+    transition: none;
     transform: translateX(400px);
+}
+
+main.active {
+    height: 520px;
+}
+
+main.active-popup {
+    transform: scale(1);
 }
