@@ -17,5 +17,8 @@ loginPopup.addEventListener("click", () => {
 })
 
 iconClose.addEventListener("click", () => {
-    main.classList.remove("active-popup")
+    main.classList.remove("active-popup");
+    setTimeout(() => {
+        main.classList.remove("active");
+    }, 700);
 })
